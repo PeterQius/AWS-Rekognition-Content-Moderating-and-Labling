@@ -1,2 +1,2 @@
-# AWS-Rekognition-Moderating-content
-AWS-Rekognition-Moderating content(Picture、Video)
+# AWS-Rekognition-Content Moderating and Labling(Picture、Video)
+AWS-Rekognition-Content Moderating and Labling(Picture、Video)
