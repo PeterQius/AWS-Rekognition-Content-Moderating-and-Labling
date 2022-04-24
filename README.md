@@ -43,3 +43,8 @@ spimg.py：有时候截取的图片中包含的元素过多，同时经过实际
 
 5、视频审核
 视频审核采用了不同的方案和底层模型，识别准确度会更高，价格会相对高一些。此次不对视频审核进行描述，有需要可参考官方文档：https://docs.aws.amazon.com/zh_cn/rekognition/latest/dg/video.html
+
+# 接口测试
+Cross_Region_Detectedunsafe.py：跨区域部署调用图片进行接口及延时测试。  
+Http_Detectedunsafe.py：调用Http图片进行接口及延时测试。  
+Local_Detectedunsafe.py：调用本地图片进行接口及延时测试。
