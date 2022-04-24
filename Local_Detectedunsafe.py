@@ -14,8 +14,8 @@ def moderate_image(photo, bucket):
 
 def main():
     start = datetime.datetime.now()
-    photo = '1.jpeg'
-    bucket = 'irelandimg'
+    photo = <fimename>
+    bucket = <bucketname>
     label_count = moderate_image(photo, bucket)
     print("Labels detected: " + str(label_count))
     end = datetime.datetime.now()
