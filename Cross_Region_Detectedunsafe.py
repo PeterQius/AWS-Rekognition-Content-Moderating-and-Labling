@@ -15,9 +15,9 @@ def moderate_image(targetkey, targetbucket):
 
 def main():
     start = datetime.datetime.now()
-    sourcebucket = 'irelandimg'
-    sourcekey = '1.jpeg'
-    targetbucket= 'singaporeimg'
+    sourcebucket = <sourcebucket>
+    sourcekey = <sourcekey>
+    targetbucket= <targetbucket>
     targetkey = sourcekey
 
     s3=boto3.resource('s3')
