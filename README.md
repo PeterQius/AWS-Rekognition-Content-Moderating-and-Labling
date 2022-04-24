@@ -22,5 +22,24 @@ Amazon Rekognition使用深度学习来检测明显或暗示性的成人内容�
 依托AWS的松耦合特性，方案还能进行多方面扩展，如集成文字（下一章节介绍），机器学习、自研模型等。如下面示例的思路，在置信度识别较低的情况下（场景不同，识别出的效果不同），可以进行切分后再审，实现更高的识别效果。
 <div align=center><img width="500" alt="image" src="https://user-images.githubusercontent.com/19642366/164969217-bdc15c80-f1a7-44c4-83a0-f1152660da5d.png"></div>
 
-#### 代码部署
+# 代码部署
 1、视频内容抽帧：
+<div align=center><img width="500" alt="image" src="https://user-images.githubusercontent.com/19642366/164971103-2df4df65-4f1c-4149-895d-fa0812cd8481.png"></div>
+
+getimage.sh：使用FFmpeg来抽取视频的帧图片，其中fps指明按照多少帧来截取图片。帧率决定了一个视频抽取多少图片，会涉及到调用费用和管理等方面。
+
+2、图片审核：
+<div align=center><img width="500" alt="image" src="https://user-images.githubusercontent.com/19642366/164971095-af3ba5eb-0fbd-4743-9f5c-9dfa0f99626c.png"></div>
+
+detectunsafe.py：将图片通过Rekognition进行审核并输出，此处输出到Excel，也可以保存到数据库等。其中Confidence代表标签的置信度，可以通过修改置信度默认值，显示更多标签，建议根据实际情况进行调整。
+
+3、标签提取
+detectlabels.py：通过detect_labels接口提取图片包含的标签，同样通过调整置信度，可以控制标签的输出精度。
+
+4、分割图片提升准确度
+<div align=center><img width="416" alt="image" src="https://user-images.githubusercontent.com/19642366/164971328-f64d1338-608a-4a8e-b116-2acbb32beb6c.png"></div>
+
+spimg.py：有时候截取的图片中包含的元素过多，同时经过实际测试，Rekognition在审核的时候违规范围也会对结果产生影响。所以在进行了切割之后，能排出干扰，并且放大效果。但同时切割意味着图片会翻倍，所以建议用作复检、抽样等场景。
+
+5、视频审核
+视频审核采用了不同的方案和底层模型，识别准确度会更高，价格会相对高一些。此次不对视频审核进行描述，有需要可参考官方文档：https://docs.aws.amazon.com/zh_cn/rekognition/latest/dg/video.html
