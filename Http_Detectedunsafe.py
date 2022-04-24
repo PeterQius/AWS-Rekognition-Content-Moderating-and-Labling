@@ -17,8 +17,8 @@ def detect_labels_local_file(photo):
 
 def main():
     start = datetime.datetime.now()
-    res = requests.get('https://media.ticketmaster.co.uk/tm/en-gb/dam/a/010/ff31435f-5a07-4cfe-9286-811cffa9d010_1386381_CUSTOM.jpg', timeout=15)
-    filename = '1.jpg'
+    res = requests.get('URL.jpg', timeout=15)
+    filename = <imagename>
 
     with open(filename, "wb") as f:
         f.write(res.content)
